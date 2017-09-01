@@ -1,0 +1,74 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans.xsd    
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc   
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+
+
+	激活@Required @Autowired @Resource等标注
+	<context:annotation-config></context:annotation-config> DispatcherServlet上下文， 
+		只 扫描@Controller注解标注的类，从而缩小了搜索的范围，也就是减少扫描的颗粒，并自动加载到spring容器中 <context:component-scan 
+		base-package="com.example.hello"> <context:include-filter type="annotation" 
+		expression="org.springframework.stereotype.Controller"/> </context:component-scan>
+
+
+
+
+
+	可以激活 RestController标签
+	<mvc:annotation-driven />
+	指定扫描com.infomationmanagementsystem 下的包
+	<context:component-scan base-package="com.infomationmanagementsystem" />
+
+
+
+
+	springMVC+jsp的跳转页面配置
+	指定输出时 使用 指定的文件夹下的指定那些后缀类型的视图文件
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/jsps/" />
+		<property name="prefix" value="/WEB-INF/jsps/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+
+
+
+	springMVC+thymeleaf的跳转页面配置
+	<bean id="templateResolver"
+		class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".html" />
+		<property name="templateMode" value="HTML5" />
+	</bean>
+
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="templateEngine" />
+	</bean>
+
+
+
+
+
+
+
+
+
+
+
+</beans>   -->
